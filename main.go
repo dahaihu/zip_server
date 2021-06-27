@@ -35,7 +35,7 @@ func init() {
 }
 
 const (
-	times = 10
+	times        = 10
 	bufferLength = 1024 * 1024 * 10
 )
 
@@ -48,7 +48,7 @@ func zipHandler(w http.ResponseWriter, _ *http.Request) {
 			log.Fatal(err)
 		}
 		data, err := ioutil.ReadAll(readFile)
-		if  err != nil {
+		if err != nil {
 			log.Fatal(err)
 		}
 		filename := fmt.Sprintf("test/%d.txt", time)
@@ -133,7 +133,7 @@ func zipHandlerUsingResp(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("send file path is ", sendFilePath(time))
+		log.Println("send file path is ", sendFilePath(time))
 		readFile, err := os.Open(sendFilePath(time))
 		if err != nil {
 			log.Fatal(err)
